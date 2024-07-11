@@ -2,6 +2,7 @@ import { View, Text, Image, StyleSheet } from 'react-native';
 import React from 'react';
 import { createDrawerNavigator, DrawerContentScrollView, DrawerItemList } from '@react-navigation/drawer';
 import { CalculatorScreen,BMIScreen } from '../../screens';
+import GoogleSignIn from '../../components/LoginComponets/Buttons/GoogleSignIn';
 
 const Drawer = createDrawerNavigator();
 
@@ -9,6 +10,7 @@ function HomeScreen() {
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <Text>Home Screen</Text>
+      <GoogleSignIn />
     </View>
   );
 }

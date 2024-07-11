@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "226662623168",
+    "project_id": "amnilinternship",
+    "storage_bucket": "amnilinternship.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:226662623168:android:17db319be01e9a347cca25",
+        "android_client_info": {
+          "package_name": "com.amniltaskapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "226662623168-gkidplvmsbo7vm66u385dapj943p935d.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.amniltaskapp",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "226662623168-cj8lngmvabbokc514acoev8qrbtj8hbu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBXAkEd8fbJyw-i_ompOvI40JibZAzW-w0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "226662623168-cj8lngmvabbokc514acoev8qrbtj8hbu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
