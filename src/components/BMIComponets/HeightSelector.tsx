@@ -29,8 +29,8 @@ const HeightSelector: React.FC<HeightSelectorProps> = ({ value, onChange }) => {
         </View>
         <Slider
           style={styles.slider}
-          minimumValue={0}
-          maximumValue={300}
+          minimumValue={120}
+          maximumValue={240}
           step={1}
           value={value}
           onValueChange={onChange}

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, Alert, StyleSheet, ActivityIndicator } from 'react-native';
-import {  GoogleSignIn, CredientialsLogin} from '../components';
+import { View, Text, ActivityIndicator, StyleSheet } from 'react-native';
+import { GoogleSignIn, CredientialsLogin } from '../components';
 
 type LoginScreenProps = {
   navigation: any;
@@ -9,15 +9,20 @@ type LoginScreenProps = {
 const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
   const [loading, setLoading] = useState<boolean>(false);
 
+  const handleLoginSuccess = () => {
+    setLoading(false);
+    navigation.replace('Drawer');
+  };
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Welcome to TaskApp.</Text>
 
-      <GoogleSignIn />
+      <GoogleSignIn onLoginSuccess={handleLoginSuccess} />
 
       <Text style={styles.orText}>or by email</Text>
 
-      <CredientialsLogin /> 
+      <CredientialsLogin onLoginSuccess={handleLoginSuccess} /> 
 
       {loading && (
         <View style={StyleSheet.absoluteFill}>

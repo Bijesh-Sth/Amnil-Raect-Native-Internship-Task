@@ -2,8 +2,11 @@ import React from 'react';
 import { TouchableOpacity, Text, StyleSheet, Alert } from 'react-native';
 import { useAppDispatch, useAppSelector } from '../../../redux/hooks';
 import { googleSignIn } from '../../../redux/slices/authSlice';
+type GoogleSignInProps = {
+  onLoginSuccess: () => void;
+};
 
-const GoogleSignIn: React.FC = () => {
+const GoogleSignIn: React.FC<GoogleSignInProps> = ({ onLoginSuccess }) => {
   const dispatch = useAppDispatch();
   const { loading, error } = useAppSelector((state) => state.auth);
 
@@ -13,6 +16,7 @@ const GoogleSignIn: React.FC = () => {
       const userData = actionResult as { id: string; name: string; email: string; image: string; };
 
       console.log('User data after Google Sign-In:', userData);
+      onLoginSuccess();
       Alert.alert('Signed in with Google!');
     } catch (err) {
       Alert.alert('Google Sign-In Error', error || 'An error occurred');

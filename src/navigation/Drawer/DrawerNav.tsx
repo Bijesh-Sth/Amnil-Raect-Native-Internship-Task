@@ -3,6 +3,7 @@ import React from 'react';
 import { createDrawerNavigator, DrawerContentScrollView, DrawerItemList } from '@react-navigation/drawer';
 import { CalculatorScreen,BMIScreen, DiceRollScreen, LoginScreen} from '../../screens';
 import {ProfileComponent} from '../../components';
+import { TabNav } from '..';
 
 const Drawer = createDrawerNavigator();
 
@@ -17,10 +18,7 @@ function HomeScreen() {
 export default function DrawerNav() {
   return (
     <Drawer.Navigator drawerContent={(props) => <ProfileComponent {...props} />}>
-      <Drawer.Screen name="Home" component={LoginScreen} />
-      <Drawer.Screen name="Dice" component={DiceRollScreen} />
-      <Drawer.Screen name="Calculator" component={CalculatorScreen} />
-      <Drawer.Screen name="BMI" component={BMIScreen} />
+      <Drawer.Screen name="Home" component={TabNav} />
     </Drawer.Navigator>
   );
 }

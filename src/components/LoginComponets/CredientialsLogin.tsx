@@ -4,7 +4,11 @@ import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { usernamePasswordSignIn } from '../../redux/slices/authSlice';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-const UsernamePasswordSignIn: React.FC = () => {
+type UsernamePasswordSignInProps = {
+  onLoginSuccess: () => void;
+};
+
+const UsernamePasswordSignIn: React.FC<UsernamePasswordSignInProps> = ({ onLoginSuccess }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -14,6 +18,7 @@ const UsernamePasswordSignIn: React.FC = () => {
   const handleSignIn = async () => {
     try {
       await dispatch(usernamePasswordSignIn({ username, password })).unwrap();
+      onLoginSuccess();
       Alert.alert('Signed in successfully!');
       setPassword('');
       setUsername('');
@@ -36,7 +41,7 @@ const UsernamePasswordSignIn: React.FC = () => {
           placeholder="Password"
           value={password}
           onChangeText={setPassword}
-          secureTextEntry={!showPassword} // Toggle secureTextEntry based on showPassword state
+          secureTextEntry={!showPassword}
         />
         <TouchableOpacity style={styles.toggleButton} onPress={() => setShowPassword(!showPassword)}>
           <Icon name={showPassword ? 'eye-off-outline' : 'eye-outline'} size={24} color="#3498db" />

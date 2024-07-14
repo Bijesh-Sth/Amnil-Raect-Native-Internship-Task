@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, Image, StyleSheet, TouchableOpacity, Alert } from 'react-native';
 import { DrawerContentScrollView, DrawerItemList } from '@react-navigation/drawer';
 import { useAppSelector, useAppDispatch } from '../../../redux/hooks';
 import { logout } from '../../../redux/slices/authSlice';
@@ -10,15 +10,11 @@ const ProfileComponent: React.FC = (props) => {
 
   const handleLogout = () => {
     dispatch(logout());
-    // Ideally, navigate to your login screen after logout
-    // Replace 'Login' with your actual login screen name in navigation
-    // props.navigation.navigate('Login');
+    Alert.alert('Logged out successfully!');
   };
 
   const handleLogin = () => {
-    // Navigate to your login screen
-    // Replace 'Login' with your actual login screen name in navigation
-    // props.navigation.navigate('Login');
+    props.navigation.replace('Login');
   };
 
   return (
